@@ -7,6 +7,7 @@
       <th>Manager ID</th>
       <th>Manager Name</th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -39,6 +40,12 @@ if ($result->num_rows > 0) {
     <form method="post" action="employee-edit.php">
       <input type="hidden" name="eid" value="<?=$row["employee_id"]?>"/>
       <input type="sumbit" value="Edit" class="btn btn-primary" />
+    </form>
+  </td>
+    <td>
+    <form method="post" action="employee-delete-save.php">
+      <input type="hidden" name="eid" value="<?=$row["employee_id"]?>"/>
+      <input type="sumbit" value="Delete" class="btn btn-primary" onclick="confirm('Are you sure?')" />
     </form>
   </td>
 </tr>
