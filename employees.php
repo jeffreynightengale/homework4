@@ -6,6 +6,7 @@
       <th>Employee Name</th>
       <th>Manager ID</th>
       <th>Manager Name</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -34,6 +35,12 @@ if ($result->num_rows > 0) {
   <td><?=$row["employee_name"]?></td>
   <td><?=$row["manager_id"]?></td>
   <td><a href="managerfile.php?id=<?=$row["manager_id"]?>"><?=$row["manager_name"]?></a></td>
+  <td>
+    <form method="post" action="employee-edit.php">
+      <input type="hidden" name="eid" value="<?=$row["employee_id"]?>"/>
+      <input type="sumbit" value="Edit" class="btn btn-primary" />
+    </form>
+  </td>
 </tr>
   <?php
     }
