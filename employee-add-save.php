@@ -17,7 +17,7 @@ $mID = $_POST['mID'];
 $mName = $_POST['mName'];
 $sql = "INSERT into Employee (employee_name, manager_id, manager_name) value (???)";
     $stmt = $conn->prepare($sql);
-echo $stmt;
+echo $eName;
       $stmt->bind_params("sis", $eName, $mID, $mName);
     $stmt->execute();
 ?>
