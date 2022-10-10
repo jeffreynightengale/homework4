@@ -13,7 +13,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT employee_id, employee_name, manager_id, manager_name FROM Employee where where employee_id=?";
+$sql = "SELECT employee_id, employee_name, manager_id, manager_name FROM Employee where employee_id=?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $_POST['eid']);
 $stmt->execute();
