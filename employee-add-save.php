@@ -17,9 +17,11 @@ if ($conn->connect_error) {
 }
 
 $eName = $_POST["eName"];
+$mID = $_POST["mID"];
+$mName = $_POST["mName"];
 $sql = "INSERT into table Employee (employee_name, manager_id, manager_name) value (???)";
     $stmt = $conn->prepare($sql);
-      $stmt->bind_params("sis", $cid, $manager_id, $manager_name);
+      $stmt->bind_params("sis", $eName, $mID, $mName);
     $stmt->execute();
 ?>
 <a href="employees.php" class="btn btn-primary">Go back</a>
