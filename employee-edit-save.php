@@ -1,7 +1,7 @@
 <?php require_once("header.php"); ?>
 <h1>Edit Employee</h1>
 <div class="alert alert-success" role="alert">
-  Your employee has been edited to the database!
+  Your employee has been edited in the database!
 </div>
 <?php
 $servername = "localhost:3306";
@@ -16,10 +16,12 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$eName = $_POST["eName"];
-$sql = "UPDATE employee set employee_name=? where employee_id=?";
+$eName = $_POST['eName'];
+$mID = $_POST['mID'];
+$mName = $_POST['mName'];
+$sql = "UPDATE employee set employee_name=?, manager_ID=?, manager_name=? where employee_ID=?";
     $stmt = $conn->prepare($sql);
-      $stmt->bind_params("si", eName, $_POST['cid']);
+      $stmt->bind_params("sis", $eName, $mID, $mName);
     $stmt->execute();
 ?>
 <a href="employees.php" class="btn btn-primary">Go back</a>
