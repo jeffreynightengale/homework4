@@ -16,13 +16,12 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$eid = $_POST['eid'];
 $eName = $_POST['eName'];
 $mID = $_POST['mID'];
 $mName = $_POST['mName'];
 $sql = "UPDATE Employee set employee_name=?, manager_ID=?, manager_name=? where employee_ID=?";
     $stmt = $conn->prepare($sql);
-      $stmt->bind_params("sisi", $eName, $mID, $mName, $eid);
+      $stmt->bind_params("sisi", $eName, $mID, $mName, $_POST['eid']);
     $stmt->execute();
 ?>
 <a href="employees.php" class="btn btn-primary">Go back</a>
