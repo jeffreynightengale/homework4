@@ -25,13 +25,13 @@ if ($result->num_rows > 0) {
     ?>
 <form method="post" action="employee-edit-save.php">
   <div class="mb-3">
-    <label for="employeeName" class="form-label">Name</label>
+    <label for="employeeName" class="form-label">New Name</label>
     <input type="text" class="form-control" id="employeeName" aria-describedby="nameHelp" name="eName">
     <div id="nameHelp" class="form-text">Enter the employee's name</div>
-      <label for="managerID" class="form-label">Name</label>
+      <label for="managerID" class="form-label">New Manager ID</label>
     <input type="text" class="form-control" id="managerID" aria-describedby="nameHelp" name="mID">
     <div id="nameHelp" class="form-text">Enter the Manager's ID</div>
-      <label for="managerName" class="form-label">Name</label>
+      <label for="managerName" class="form-label">New Manager Name</label>
     <input type="text" class="form-control" id="managerName" aria-describedby="nameHelp" name="mName">
     <div id="nameHelp" class="form-text">Enter the Manager's name</div>
   </div>
