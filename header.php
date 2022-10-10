@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="customers.php">Customer Records</a>
+          <a class="nav-link active" aria-current="page" href="index.php">Customer Records</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="employees.php">Employees</a>
