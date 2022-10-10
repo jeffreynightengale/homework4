@@ -15,9 +15,8 @@ if ($conn->connect_error) {
 $eName = $_POST['eName'];
 $mID = $_POST['mID'];
 $mName = $_POST['mName'];
-$sql = "INSERT into Employee (employee_name, manager_id, manager_name) value (???)";
+$sql = "INSERT into Employee (employee_name, manager_ID, manager_name) value (???)";
     $stmt = $conn->prepare($sql);
-echo $eName;
       $stmt->bind_params("sis", $eName, $mID, $mName);
     $stmt->execute();
 ?>
