@@ -1,8 +1,4 @@
 <?php require_once("header.php"); ?>
-<h1>Add Employee</h1>
-<div class="alert alert-success" role="alert">
-  Your employee has been added to the database!
-</div>
 <?php
 $servername = "localhost:3306";
 $username = "jeffreyn_user1";
@@ -24,6 +20,11 @@ $sql = "INSERT into table Employee (employee_name, manager_id, manager_name) val
       $stmt->bind_params("sis", $eName, $mID, $mName);
     $stmt->execute();
 ?>
+<h1>Add Employee</h1>
+<div class="alert alert-success" role="alert">
+  Your employee has been added to the database!
+</div>
+
 <a href="employees.php" class="btn btn-primary">Go back</a>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
   </body>
