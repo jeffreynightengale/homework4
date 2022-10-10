@@ -19,11 +19,8 @@ if ($conn->connect_error) {
 $eName = $_POST['eName'];
 $mID = $_POST['mID'];
 $mName = $_POST['mName'];
-echo $eName;
-echo $_POST['eid'];
 $sql = "UPDATE Employee set employee_name=?, manager_ID=?, manager_name=? where employee_ID=?";
     $stmt = $conn->prepare($sql);
-echo $stmt;
       $stmt->bind_param("sisi", $eName, $mID, $mName, $_POST['eid']);
     $stmt->execute();
 ?>
