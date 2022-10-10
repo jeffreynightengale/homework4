@@ -13,7 +13,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT employee_id, employee_name, manager_id, manager_name FROM Employee";
+$sql = "SELECT employee_id, employee_name, manager_id, manager_name FROM Employee where where employee_id=?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $_POST['eid']);
 $stmt->execute();
@@ -28,6 +28,12 @@ if ($result->num_rows > 0) {
     <label for="employeeName" class="form-label">Name</label>
     <input type="text" class="form-control" id="employeeName" aria-describedby="nameHelp" name="eName">
     <div id="nameHelp" class="form-text">Enter the employee's name</div>
+      <label for="managerID" class="form-label">Name</label>
+    <input type="text" class="form-control" id="managerID" aria-describedby="nameHelp" name="mID">
+    <div id="nameHelp" class="form-text">Enter the Manager's ID</div>
+      <label for="managerName" class="form-label">Name</label>
+    <input type="text" class="form-control" id="managerName" aria-describedby="nameHelp" name="mName">
+    <div id="nameHelp" class="form-text">Enter the Manager's name</div>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
