@@ -15,11 +15,10 @@ if ($conn->connect_error) {
 $eName = $_POST['eName'];
 $mID = $_POST['mID'];
 $mName = $_POST['mName'];
-$sql = "INSERT into Employee (employee_name, manager_ID, manager_name) value (???)";
+$sql = "INSERT into Employee (employee_name, manager_ID, manager_name) value (?,?,?)";
     $stmt = $conn->prepare($sql);
-      $stmt->bind_param("sis", $eName, $mID, $mName);
-echo $stmt;
-    //$stmt->execute();
+    $stmt->bind_param("sis", $eName, $mID, $mName);
+    $stmt->execute();
 ?>
 <h1>Add Employee</h1>
 <div class="alert alert-success" role="alert">
