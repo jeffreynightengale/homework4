@@ -12,9 +12,9 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$eName = $_POST["eName"];
-$mID = $_POST["mID"];
-$mName = $_POST["mName"];
+$eName = $_POST['eName'];
+$mID = $_POST['mID'];
+$mName = $_POST['mName'];
 $sql = "INSERT into table Employee (employee_name, manager_id, manager_name) value (???)";
     $stmt = $conn->prepare($sql);
       $stmt->bind_params("sis", $eName, $mID, $mName);
