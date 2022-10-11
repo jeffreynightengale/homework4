@@ -39,7 +39,7 @@ if ($result->num_rows > 0) {
   <td>
     <form method="post" action="employee-edit.php">
       <input type="hidden" name="eid" value="<?=$row["employee_id"]?>"/>
-      <input type="sumbit" value="Edit" class="btn" />
+      <input type="click" value="Edit" class="btn" />
     </form>
   </td>
     <td>
