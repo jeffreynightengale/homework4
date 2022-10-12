@@ -39,13 +39,13 @@ if ($result->num_rows > 0) {
   <td>
     <form method="post" action="employee-edit.php">
       <input type="hidden" name="eid" value="<?=$row["employee_id"]?>"/>
-      <input type="click" value="Edit" class="btn" />
+      <input type="submit" value="Edit" class="btn" />
     </form>
   </td>
     <td>
     <form method="post" action="employee-delete-save.php">
       <input type="hidden" name="eid" value="<?=$row["employee_id"]?>"/>
-      <input type="sumbit" value="Delete" class="btn btn-primary" onclick="confirm('Are you sure?')" />
+      <input type="submit" value="Delete" class="btn btn-primary" onclick="confirm('Are you sure?')" />
     </form>
   </td>
 </tr>
