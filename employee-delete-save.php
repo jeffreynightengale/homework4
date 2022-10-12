@@ -18,7 +18,7 @@ if ($conn->connect_error) {
 
 $sql = "DELETE from Employee where employee_id=?";
     $stmt = $conn->prepare($sql);
-      $stmt->bind_params("i", eName);
+      $stmt->bind_params("i", $_POST['eid']);
     $stmt->execute();
 ?>
 <a href="employees.php" class="btn btn-primary">Go back</a>
