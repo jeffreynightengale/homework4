@@ -16,7 +16,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "DELETE from Employee where employee_id=?";
+$sql = "DELETE from Employee where employee_ID=?";
     $stmt = $conn->prepare($sql);
       $stmt->bind_params("i", $_POST['eid']);
     $stmt->execute();
