@@ -35,6 +35,7 @@ if ($result->num_rows > 0) {
     <input type="text" class="form-control" id="managerName" aria-describedby="nameHelp" name="mName" value="<?=$row['manager_name']?>">
     <div id="nameHelp" class="form-text">Enter the Manager's name</div>
   </div>
+  <input type="hidden" name="eid" value="<?=$row['employee_id']?>">
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 <?php
