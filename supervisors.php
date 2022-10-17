@@ -54,6 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <th>Supervisor Name</th>
             <th></th>
             <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -69,26 +70,32 @@ if ($result->num_rows > 0) {
           
           <tr>
             <td><?=$row["supervisor_id"]?></td>
-            <td><?=$row["supervisor_id"]?>"><?=$row["supervisor_name"]?></td>
+            <td><?=$row["supervisor_name"]?></td>
             <td>
-              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editInstructor<?=$row["instructor_id"]?>">
+            <form method="post" action="supervisorfile.php">
+             <input type="hidden" name="id" value="<?=$row["supervisor_id"]?>" />
+             <input type="submit" value="Supervisor's Managers" />
+           </form>
+           </td>
+            <td>
+              <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editSupervisor<?=$row["supervisor_id"]?>">
                 Edit
               </button>
-              <div class="modal fade" id="editInstructor<?=$row["instructor_id"]?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editInstructor<?=$row["instructor_id"]?>Label" aria-hidden="true">
+              <div class="modal fade" id="editSupervisor<?=$row["supervisor_id"]?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editSupervisor<?=$row["supervisor_id"]?>Label" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="editInstructor<?=$row["instructor_id"]?>Label">Edit Instructor</h1>
+                      <h1 class="modal-title fs-5" id="editSupervisor<?=$row["supervisor_id"]?>Label">Edit Supervisor</h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                       <form method="post" action="">
                         <div class="mb-3">
-                          <label for="editInstructor<?=$row["instructor_id"]?>Name" class="form-label">Name</label>
-                          <input type="text" class="form-control" id="editInstructor<?=$row["instructor_id"]?>Name" aria-describedby="editInstructor<?=$row["instructor_id"]?>Help" name="iName" value="<?=$row['instructor_name']?>">
-                          <div id="editInstructor<?=$row["instructor_id"]?>Help" class="form-text">Enter the instructor's name.</div>
+                          <label for="editSupervisor<?=$row["supervisor_id"]?>Name" class="form-label">Name</label>
+                          <input type="text" class="form-control" id="editSupervisor<?=$row["supervisor_id"]?>Name" aria-describedby="editSupervisor<?=$row["supervisor_id"]?>Help" name="sName" value="<?=$row['supervisor_name']?>">
+                          <div id="editSupervisor<?=$row["supervisor_id"]?>Help" class="form-text">Enter the Supervisor's name.</div>
                         </div>
-                        <input type="hidden" name="iid" value="<?=$row['instructor_id']?>">
+                        <input type="hidden" name="sid" value="<?=$row['supervisor_id']?>">
                         <input type="hidden" name="saveType" value="Edit">
                         <input type="submit" class="btn btn-primary" value="Submit">
                       </form>
@@ -99,7 +106,7 @@ if ($result->num_rows > 0) {
             </td>
             <td>
               <form method="post" action="">
-                <input type="hidden" name="iid" value="<?=$row["instructor_id"]?>" />
+                <input type="hidden" name="sid" value="<?=$row["supervisor_id"]?>" />
                 <input type="hidden" name="saveType" value="Delete">
                 <input type="submit" class="btn" onclick="return confirm('Are you sure?')" value="Delete">
               </form>
@@ -118,24 +125,24 @@ $conn->close();
       </table>
       <br />
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addInstructor">
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addSupervisor">
         Add New
       </button>
 
       <!-- Modal -->
-      <div class="modal fade" id="addInstructor" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addInstructorLabel" aria-hidden="true">
+      <div class="modal fade" id="addSupervisor" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addSupervisorLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="addInstructorLabel">Add Instructor</h1>
+              <h1 class="modal-title fs-5" id="addSupervisorLabel">Add Supervisor</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <form method="post" action="">
                 <div class="mb-3">
-                  <label for="instructorName" class="form-label">Name</label>
-                  <input type="text" class="form-control" id="instructorName" aria-describedby="nameHelp" name="iName">
-                  <div id="nameHelp" class="form-text">Enter the instructor's name.</div>
+                  <label for="supervisorName" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="supervisorName" aria-describedby="nameHelp" name="sName">
+                  <div id="nameHelp" class="form-text">Enter the supervisor's name.</div>
                 </div>
                 <input type="hidden" name="saveType" value="Add">
                 <button type="submit" class="btn btn-primary">Submit</button>
