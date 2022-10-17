@@ -2,8 +2,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Supervisor ID</th>
-      <th>Supervisor Name</th>
+      <th>Supervisors</th>
     </tr>
   </thead>
   <tbody>
