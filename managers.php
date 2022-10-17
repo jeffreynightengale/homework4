@@ -76,7 +76,7 @@ if ($result->num_rows > 0) {
                       <form method="post" action="">
                         <div class="mb-3">
                           <label for="editManager<?=$row["manager_id"]?>Name" class="form-label">Name</label>
-                          <input type="text" class="form-control" id="editManagerr<?=$row["managerr_id"]?>Name" aria-describedby="editManager<?=$row["manager_id"]?>Help" name="mName" value="<?=$row['manager_name']?>">
+                          <input type="text" class="form-control" id="editManager<?=$row["manager_id"]?>Name" aria-describedby="editManager<?=$row["manager_id"]?>Help" name="mName" value="<?=$row['manager_name']?>">
                           <div id="editInstructor<?=$row["manager_id"]?>Help" class="form-text">Enter the Manager's name.</div>
                           <label for="SupervisorID" class="form-label">Supervisor ID</label>
                           <input type="text" class="form-control" id="sid" aria-describedby="nameHelp" name="sid" value="<?=$row['supervisor_id']?>">
