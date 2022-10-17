@@ -62,6 +62,12 @@ if ($result->num_rows > 0) {
             <td><?=$row["supervisor_id"]?></td>
             <td><?=$row["supervisor_name"]?></td>
             <td>
+            <form method="post" action="managercust.php">
+            <input type="hidden" name="id" value="<?=$row["manager_id"]?>" />
+             <input type="submit" value="Manager Sells" />
+            </form>
+           </td>
+            <td>
               <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editManager<?=$row["manager_id"]?>">
                 Edit
               </button>
