@@ -58,8 +58,9 @@ if ($result->num_rows > 0) {
           
           <tr>
             <td><?=$row["manager_id"]?></td>
-            <td><a href="managerfile.php?id=<?=$row["manager_id"]?>"><?=$row["manager_name"]?><?=$row["supervisor_id"]?><?=$row["supervisor_name"]?></a></td>
-            <td>
+            <td><a href="managerfile.php?id=<?=$row["manager_name"]?></a></td>
+            <td><?=$row["supervisor_id"]?></td>
+            <td><?=$row["supervisor_name"]?></td>
               <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#editManager<?=$row["manager_id"]?>">
                 Edit
               </button>
