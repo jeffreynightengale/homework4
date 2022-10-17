@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>         
 <?php
-$sql = "SELECT manager_id, manager_name, supervisor_id, supervisor_name from manager";
+$sql = "SELECT manager_id, manager_name, supervisor_id, supervisor_name from Manager";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
