@@ -1,11 +1,4 @@
 <?php require_once("header.php"); ?>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Supervisors</th>
-    </tr>
-  </thead>
-  <tbody>
 <?php
 $servername = "localhost:3306";
 $username = "jeffreyn_user1";
