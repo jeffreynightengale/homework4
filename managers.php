@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     case 'Add':
       $sqlAdd = "insert into Manager (manager_name, supervisor_ID, supervisor_name) value (?,?,?)";
       $stmtAdd = $conn->prepare($sqlAdd);
-      $stmtAdd->bind_param("sis", $_POST['mName'], $_POST['sID'], $_POST['sName']);
+      $stmtAdd->bind_param("sis", $_POST['mName'], $_POST['sid'], $_POST['sName']);
       $stmtAdd->execute();
       echo '<div class="alert alert-success" role="alert">New Manager added.</div>';
       break;
