@@ -58,7 +58,7 @@ if ($result->num_rows > 0) {
           
           <tr>
             <td><?=$row["manager_id"]?></td>
-            <td><a href="managerfile.php?id=<?=$row["manager_name"]?></a></td>
+            <td><a href="managerfile.php?id=<?=$row["manager_name"]?>"></a></td>
             <td><?=$row["supervisor_id"]?></td>
             <td><?=$row["supervisor_name"]?></td>
             <td>
