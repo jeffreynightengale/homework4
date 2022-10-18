@@ -77,17 +77,23 @@ if ($result->num_rows > 0) {
                     <div class="modal-body">
                       <form method="post" action="">
                         <div class="mb-3">
-                          <label for="editCustomer<?=$row["Customer_id"]?>Name" class="form-label">Customer Name</label>
+                          <label for="editCustomer<?=$row["customer_id"]?>Name" class="form-label">Customer Name</label>
                           <input type="text" class="form-control" id="editCustomer<?=$row["customer_id"]?>Name" aria-describedby="editCustomer<?=$row["customer_id"]?>Help" name="cName" value="<?=$row['customer_name']?>">
                           <div id="editCustomer<?=$row["customer_id"]?>Help" class="form-text">Enter the Customer's name.</div>
-                          <label for="SupervisorID" class="form-label">Supervisor ID</label>
-                          <input type="text" class="form-control" id="sid" aria-describedby="nameHelp" name="sid" value="<?=$row['supervisor_id']?>">
-                          <div id="nameHelp" class="form-text">Enter the Supervisor's ID</div>
-                          <label for="supervisorName" class="form-label">Supervisor Name</label>
-                          <input type="text" class="form-control" id="supervisorName" aria-describedby="nameHelp" name="sName" value="<?=$row['supervisor_name']?>">
-                          <div id="nameHelp" class="form-text">Enter the Supervisor's name</div>
+                          <label for="EmployeeID" class="form-label">Employee ID</label>
+                          <input type="text" class="form-control" id="sid" aria-describedby="nameHelp" name="eid" value="<?=$row['employee_id']?>">
+                          <div id="nameHelp" class="form-text">Enter the Employee's ID</div>
+                          <label for="EmployeeName" class="form-label">Employee Name</label>
+                          <input type="text" class="form-control" id="eName" aria-describedby="nameHelp" name="eName" value="<?=$row['employee_name']?>">
+                          <div id="nameHelp" class="form-text">Enter the Employee's name</div>
+                          <label for="ProductName" class="form-label">Product Name</label>
+                          <input type="text" class="form-control" id="pName" aria-describedby="nameHelp" name="pName" value="<?=$row['product_name']?>">
+                          <div id="nameHelp" class="form-text">Enter the Product Name</div>
+                          <label for="ProductCost" class="form-label">Product Cost</label>
+                          <input type="text" class="form-control" id="pCost" aria-describedby="nameHelp" name="pCost" value="<?=$row['product_cost']?>">
+                          <div id="nameHelp" class="form-text">Enter the Product's cost</div>
                         </div>
-                        <input type="hidden" name="mid" value="<?=$row['manager_id']?>">
+                        <input type="hidden" name="cid" value="<?=$row['customer_id']?>">
                         <input type="hidden" name="saveType" value="Edit">
                         <input type="submit" class="btn btn-primary" value="Submit">
                       </form>
@@ -98,7 +104,7 @@ if ($result->num_rows > 0) {
             </td>
             <td>
               <form method="post" action="">
-                <input type="hidden" name="mid" value="<?=$row["manager_id"]?>" />
+                <input type="hidden" name="cid" value="<?=$row["customer_id"]?>" />
                 <input type="hidden" name="saveType" value="Delete">
                 <input type="submit" class="btn" onclick="return confirm('Are you sure?')" value="Delete">
               </form>
@@ -117,30 +123,36 @@ $conn->close();
       </table>
       <br />
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addManager">
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addCustomer">
         Add New
       </button>
 
       <!-- Modal -->
-      <div class="modal fade" id="addManager" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addManagerLabel" aria-hidden="true">
+      <div class="modal fade" id="addCustomer" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addCustomerLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="addManagerLabel">Add Manager</h1>
+              <h1 class="modal-title fs-5" id="addCustomerLabel">Add Customer</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               <form method="post" action="">
                 <div class="mb-3">
-                  <label for="managerName" class="form-label">Name</label>
-                  <input type="text" class="form-control" id="mName" aria-describedby="nameHelp" name="mName">
-                  <div id="nameHelp" class="form-text">Enter the Manager's name.</div>
-                  <label for="supervisorID" class="form-label">Supervisor ID</label>
-                  <input type="text" class="form-control" id="sid" aria-describedby="nameHelp" name="sid">
-                  <div id="nameHelp" class="form-text">Enter the Supervisor's ID.</div>
-                  <label for="supervisorName" class="form-label">Supervisor Name</label>
-                  <input type="text" class="form-control" id="sName" aria-describedby="nameHelp" name="sName">
-                  <div id="nameHelp" class="form-text">Enter the Supervisor's name.</div>
+                  <label for="customerName" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="cName" aria-describedby="nameHelp" name="cName">
+                  <div id="nameHelp" class="form-text">Enter the Customer's name.</div>
+                   <label for="EmployeeID" class="form-label">Employee ID</label>
+                   <input type="text" class="form-control" id="sid" aria-describedby="nameHelp" name="eid">
+                   <div id="nameHelp" class="form-text">Enter the Employee's ID</div>
+                   <label for="EmployeeName" class="form-label">Employee Name</label>
+                   <input type="text" class="form-control" id="eName" aria-describedby="nameHelp" name="eName">
+                          <div id="nameHelp" class="form-text">Enter the Employee's name</div>
+                          <label for="ProductName" class="form-label">Product Name</label>
+                          <input type="text" class="form-control" id="pName" aria-describedby="nameHelp" name="pName">
+                          <div id="nameHelp" class="form-text">Enter the Product Name</div>
+                          <label for="ProductCost" class="form-label">Product Cost</label>
+                          <input type="text" class="form-control" id="pCost" aria-describedby="nameHelp" name="pCost">
+                          <div id="nameHelp" class="form-text">Enter the Product's cost</div>
                 </div>
                 <input type="hidden" name="saveType" value="Add">
                 <button type="submit" class="btn btn-primary">Submit</button>
