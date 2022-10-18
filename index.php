@@ -141,9 +141,6 @@ $conn->close();
                    <label for="EmployeeID" class="form-label">Employee ID</label>
                    <input type="text" class="form-control" id="sid" aria-describedby="nameHelp" name="eid">
                    <div id="nameHelp" class="form-text">Enter the Employee's ID</div>
-                   <label for="EmployeeName" class="form-label">Employee Name</label>
-                   <input type="text" class="form-control" id="eName" aria-describedby="nameHelp" name="eName">
-                          <div id="nameHelp" class="form-text">Enter the Employee's name</div>
                           <label for="ProductName" class="form-label">Product Name</label>
                           <input type="text" class="form-control" id="pName" aria-describedby="nameHelp" name="pName">
                           <div id="nameHelp" class="form-text">Enter the Product Name</div>
