@@ -80,12 +80,12 @@ if ($result->num_rows > 0) {
                           <label for="editCustomer<?=$row["customer_id"]?>Name" class="form-label">Customer Name</label>
                           <input type="text" class="form-control" id="editCustomer<?=$row["customer_id"]?>Name" aria-describedby="editCustomer<?=$row["customer_id"]?>Help" name="cName" value="<?=$row['customer_name']?>">
                           <div id="editCustomer<?=$row["customer_id"]?>Help" class="form-text">Enter the Customer's name.</div>
+                          <label for="EmployeeName" class="form-label">Employee Name</label>
+                          <input type="text" class="form-control" id="eName" aria-describedby="nameHelp" name="eName" value="<?=$row['customer_name']?>">
+                          <div id="nameHelp" class="form-text">Enter the Customer's name</div>
                           <label for="EmployeeID" class="form-label">Employee ID</label>
                           <input type="text" class="form-control" id="sid" aria-describedby="nameHelp" name="eid" value="<?=$row['employee_id']?>">
                           <div id="nameHelp" class="form-text">Enter the Employee's ID</div>
-                          <label for="EmployeeName" class="form-label">Employee Name</label>
-                          <input type="text" class="form-control" id="eName" aria-describedby="nameHelp" name="eName" value="<?=$row['employee_name']?>">
-                          <div id="nameHelp" class="form-text">Enter the Employee's name</div>
                           <label for="ProductName" class="form-label">Product Name</label>
                           <input type="text" class="form-control" id="pName" aria-describedby="nameHelp" name="pName" value="<?=$row['product_name']?>">
                           <div id="nameHelp" class="form-text">Enter the Product Name</div>
