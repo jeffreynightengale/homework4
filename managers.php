@@ -104,7 +104,7 @@ if ($result->num_rows > 0) {
 <?php
     }
 ?>
-</select>
+                            </select></div>
                         </div>
                         <input type="hidden" name="mid" value="<?=$row['manager_id']?>">
                         <input type="hidden" name="saveType" value="Edit">
