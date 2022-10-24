@@ -5,7 +5,6 @@
       <th>Manager ID</th>
       <th>Manager Name</th>
       <th>Supervisor ID</th>
-      <th>Supervisor Name</th>
     </tr>
   </thead>
   <tbody>
@@ -24,9 +23,9 @@ if ($conn->connect_error) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   switch ($_POST['saveType']) {
     case 'Add':
-      $sqlAdd = "insert into Manager (manager_name, supervisor_ID, supervisor_name) value (?,?,?)";
+      $sqlAdd = "insert into Manager (manager_name, supervisor_ID) value (?,?)";
       $stmtAdd = $conn->prepare($sqlAdd);
-      $stmtAdd->bind_param("sis", $_POST['mName'], $_POST['sid'], $_POST['sName']);
+      $stmtAdd->bind_param("sis", $_POST['mName'], $_POST['sid');
       $stmtAdd->execute();
       echo '<div class="alert alert-success" role="alert">New Manager added.</div>';
       break;
@@ -48,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>         
 <?php
-$sql = "SELECT manager_id, manager_name, supervisor_id, supervisor_name from Manager";
+$sql = "SELECT manager_id, manager_name, supervisor_id from Manager";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -60,7 +59,6 @@ if ($result->num_rows > 0) {
             <td><?=$row["manager_id"]?></td>
             <td><a href="managerfile.php?id=<?=$row["manager_id"]?>"><?=$row["manager_name"]?></a></td>
             <td><?=$row["supervisor_id"]?></td>
-            <td><?=$row["supervisor_name"]?></td>
             <td>
             <form method="post" action="managercust.php">
             <input type="hidden" name="id" value="<?=$row["manager_id"]?>" />
