@@ -100,7 +100,7 @@ if ($result->num_rows > 0) {
         $selText = "";
       }
 ?>
-  <option value="<?=$instructorRow['supervisor_id']?>"<?=$selText?>><?=$instructorRow['supervisor_name']?></option>
+  <option value="<?=$selText?>><?=$instructorRow['supervisor_name']?>"</option>
 <?php
     }
 ?>
