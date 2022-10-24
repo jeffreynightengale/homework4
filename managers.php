@@ -81,30 +81,29 @@ if ($result->num_rows > 0) {
                     <div class="modal-body">
                       <form method="post" action="">
                         <div class="mb-3">
-                          <label for="managerList" class="form-label">Manager</label>
-                          <select class="form-select" aria-label="Select manager" id="managerList" name="mid">
+                          <label for="editManager<?=$row["manager_id"]?>Name" class="form-label">Name</label>
+                          <input type="text" class="form-control" id="editManager<?=$row["manager_id"]?>Name" aria-describedby="editManager<?=$row["manager_id"]?>Help" name="mName" value="<?=$row['manager_name']?>">
+                          <div id="editInstructor<?=$row["manager_id"]?>Help" class="form-text">Enter the Manager's name.</div>
+                          <label for="SupervisorID" class="form-label">Supervisor ID</label>
+                          <input type="text" class="form-control" id="sid" aria-describedby="nameHelp" name="sid" value="<?=$row['supervisor_id']?>">
+                          <div id="nameHelp" class="form-text">Enter the Supervisor's ID</div>
+<label for="supervisorList" class="form-label">Supervisor</label>
+<select class="form-select" aria-label="Select Supervisor" id="supervisorList" name="sid">
 <?php
-    $managerSql = "select * from Manager order by manager_name";
-    $managerResult = $conn->query($managerSql);
-    while($managerRow = $managerResult->fetch_assoc()) {
-      if ($managerRow['manager_id'] == $row['manager_id']) {
+    $supevisorSql = "select * from Manager order by supervisor_name";
+    $supervisorResult = $conn->query($supervisorSql);
+    while($supervisorRow = $supervisorResult->fetch_assoc()) {
+      if ($supervisorRow['manager_id'] == $row['manager_id']) {
         $selText = " selected";
       } else {
         $selText = "";
       }
 ?>
-  <option value=<?=$selText?>><?=$managerRow['manager_name']?></option>
+  <option value="<?=$supervisorRow['manager_id']?>"<?=$selText?>><?=$supervisorRow['supervisor_name']?></option>
 <?php
     }
 ?>
 </select>
-                        </div>
-                          <label for="SupervisorID" class="form-label">Supervisor ID</label>
-                          <input type="text" class="form-control" id="sid" aria-describedby="nameHelp" name="sid" value="<?=$row['supervisor_id']?>">
-                          <div id="nameHelp" class="form-text">Enter the Supervisor's ID</div>
-                          <label for="supervisorName" class="form-label">Supervisor Name</label>
-                          <input type="text" class="form-control" id="supervisorName" aria-describedby="nameHelp" name="sName" value="<?=$row['supervisor_name']?>">
-                          <div id="nameHelp" class="form-text">Enter the Supervisor's name</div>
                         </div>
                         <input type="hidden" name="mid" value="<?=$row['manager_id']?>">
                         <input type="hidden" name="saveType" value="Edit">
