@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     case 'Edit':
       $sqlEdit = "update Manager set manager_name=?, supervisor_ID=?, supervisor_name=? where manager_id=?";
       $stmtEdit = $conn->prepare($sqlEdit);
-      $stmtEdit->bind_param("sisi", $_POST['mName'], $_POST['sid'], $_POST['sName'], $_POST['mid']);
+      $stmtEdit->bind_param("sisi", $_POST['mName'], $_POST['sid'], $_POST['mid']);
       $stmtEdit->execute();
       echo '<div class="alert alert-success" role="alert">Manager edited.</div>';
       break;
@@ -84,12 +84,9 @@ if ($result->num_rows > 0) {
                           <label for="editManager<?=$row["manager_id"]?>Name" class="form-label">Name</label>
                           <input type="text" class="form-control" id="editManager<?=$row["manager_id"]?>Name" aria-describedby="editManager<?=$row["manager_id"]?>Help" name="mName" value="<?=$row['manager_name']?>">
                           <div id="editInstructor<?=$row["manager_id"]?>Help" class="form-text">Enter the Manager's name.</div>
-                          <label for="SupervisorID" class="form-label">Supervisor ID</label>
-                          <input type="text" class="form-control" id="sid" aria-describedby="nameHelp" name="sid" value="<?=$row['supervisor_id']?>">
-                          <div id="nameHelp" class="form-text">Enter the Supervisor's ID</div>
                           <div class="mb-3">
                           <label for="supervisorList" class="form-label">Supervisor</label>
-                          <select class="form-select" aria-label="Select Supervisor" id="supervisorList" name="sName">
+                          <select class="form-select" aria-label="Select Supervisor" id="supervisorList" name="sid">
                           <?php
                        $supervisorSql = "select * from Supervisor order by supervisor_name";
     $supervisorResult = $conn->query($supervisorSql);
