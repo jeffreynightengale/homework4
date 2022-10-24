@@ -94,13 +94,13 @@ if ($result->num_rows > 0) {
                        $supervisorSql = "select * from Supervisor order by supervisor_name";
     $supervisorResult = $conn->query($supervisorSql);
     while($supervisorRow = $supervisorResult->fetch_assoc()) {
-      if ($supervisorRow['supervisor_id'] == $row['supervisor_id']) {
+      if ($supervisorRow['supervisor_ID'] == $row['supervisor_ID']) {
         $selText = " selected";
       } else {
         $selText = "";
       }
 ?>
-  <option value="<?=$supervisorRow['supervisor_id']?>"<?=$selText?>><?=$supervisorRow['supervisor_name']?></option>
+  <option value="<?=$supervisorRow['supervisor_ID']?>"<?=$selText?>><?=$supervisorRow['supervisor_name']?></option>
 <?php
     }
 ?>
