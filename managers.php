@@ -91,16 +91,16 @@ if ($result->num_rows > 0) {
                           <label for="supervisorList" class="form-label">Supervisor</label>
                           <select class="form-select" aria-label="Select Supervisor" id="supervisorList" name="sName">
                           <?php
-                       $instructorSql = "select * from Supervisor order by supervisor_name";
-    $instructorResult = $conn->query($instructorSql);
-    while($instructorRow = $instructorResult->fetch_assoc()) {
-      if ($instructorRow['supervisor_id'] == $row['supervisor_id']) {
+                       $supervisorSql = "select * from Supervisor order by supervisor_name";
+    $supervisorResult = $conn->query($supervisorSql);
+    while($supervisororRow = $instructorResult->fetch_assoc()) {
+      if ($supervisorRow['supervisor_id'] == $row['supervisor_id']) {
         $selText = " selected";
       } else {
         $selText = "";
       }
 ?>
-  <option value=<?=$instructorRow['supervisor_id']?><?=$selText?>><?=$instructorRow['supervisor_name']?></option>
+  <option value=<?=$supervisorRow['supervisor_id']?><?=$selText?>><?=$supervisorRow['supervisor_name']?></option>
 <?php
     }
 ?>
