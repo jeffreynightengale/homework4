@@ -93,7 +93,7 @@ if ($result->num_rows > 0) {
                           <?php
                        $supervisorSql = "select * from Supervisor order by supervisor_name";
     $supervisorResult = $conn->query($supervisorSql);
-    while($supervisororRow = $instructorResult->fetch_assoc()) {
+    while($supervisorRow = $instructorResult->fetch_assoc()) {
       if ($supervisorRow['supervisor_id'] == $row['supervisor_id']) {
         $selText = " selected";
       } else {
