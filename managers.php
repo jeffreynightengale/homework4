@@ -81,6 +81,7 @@ if ($result->num_rows > 0) {
                     <div class="modal-body">
                       <form method="post" action="">
                         <div class="mb-3">
+                          <label for="managerList" class="form-label">Manager</label>
                           <select class="form-select" aria-label="Select manager" id="managerList" name="mid">
 <?php
     $managerSql = "select * from Manager order by manager_name";
@@ -97,6 +98,7 @@ if ($result->num_rows > 0) {
     }
 ?>
 </select>
+                        </div>
                           <label for="SupervisorID" class="form-label">Supervisor ID</label>
                           <input type="text" class="form-control" id="sid" aria-describedby="nameHelp" name="sid" value="<?=$row['supervisor_id']?>">
                           <div id="nameHelp" class="form-text">Enter the Supervisor's ID</div>
