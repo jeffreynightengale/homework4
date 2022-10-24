@@ -93,7 +93,7 @@ if ($result->num_rows > 0) {
         $selText = "";
       }
 ?>
-  <option value="<?=$managerRow['manager_id']?>"<?=$selText?>><?=$managerRow['manager_name']?></option>
+  <option value=<?=$selText?>><?=$managerRow['manager_name']?></option>
 <?php
     }
 ?>
