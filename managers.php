@@ -81,9 +81,22 @@ if ($result->num_rows > 0) {
                     <div class="modal-body">
                       <form method="post" action="">
                         <div class="mb-3">
-                          <label for="editManager<?=$row["manager_id"]?>Name" class="form-label">Name</label>
-                          <input type="text" class="form-control" id="editManager<?=$row["manager_id"]?>Name" aria-describedby="editManager<?=$row["manager_id"]?>Help" name="mName" value="<?=$row['manager_name']?>">
-                          <div id="editInstructor<?=$row["manager_id"]?>Help" class="form-text">Enter the Manager's name.</div>
+                          <select class="form-select" aria-label="Select manager" id="managerList" name="mid">
+<?php
+    $managerSql = "select * from Manager order by manager_name";
+    $managerResult = $conn->query($managerSql);
+    while($managerRow = $managerResult->fetch_assoc()) {
+      if ($managerRow['manager_id'] == $row['manager_id']) {
+        $selText = " selected";
+      } else {
+        $selText = "";
+      }
+?>
+  <option value="<?=$managerRow['manager_id']?>"<?=$selText?>><?=$managerRow['manager_name']?></option>
+<?php
+    }
+?>
+</select>
                           <label for="SupervisorID" class="form-label">Supervisor ID</label>
                           <input type="text" class="form-control" id="sid" aria-describedby="nameHelp" name="sid" value="<?=$row['supervisor_id']?>">
                           <div id="nameHelp" class="form-text">Enter the Supervisor's ID</div>
