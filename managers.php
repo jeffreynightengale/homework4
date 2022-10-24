@@ -87,6 +87,7 @@ if ($result->num_rows > 0) {
                           <label for="SupervisorID" class="form-label">Supervisor ID</label>
                           <input type="text" class="form-control" id="sid" aria-describedby="nameHelp" name="sid" value="<?=$row['supervisor_id']?>">
                           <div id="nameHelp" class="form-text">Enter the Supervisor's ID</div>
+                          <div>
 <label for="supervisorList" class="form-label">Supervisor</label>
 <select class="form-select" aria-label="Select Supervisor" id="supervisorList" name="sid">
 <?php
