@@ -87,20 +87,22 @@ if ($result->num_rows > 0) {
                           <label for="SupervisorID" class="form-label">Supervisor ID</label>
                           <input type="text" class="form-control" id="sid" aria-describedby="nameHelp" name="sid" value="<?=$row['supervisor_id']?>">
                           <div id="nameHelp" class="form-text">Enter the Supervisor's ID</div>
-                          <div>
-<label for="supervisorList" class="form-label">Supervisor</label>
-<select class="form-select" aria-label="Select Supervisor" id="supervisorList" name="sid">
-<?php
-    $supevisorSql = "select * from Manager order by supervisor_name";
-    $supervisorResult = $conn->query($supervisorSql);
-    while($supervisorRow = $supervisorResult->fetch_assoc()) {
-      if ($supervisorRow['manager_id'] == $row['manager_id']) {
+                          <label for="supervisorName" class="form-label">Supervisor Name</label>
+                          <input type="text" class="form-control" id="supervisorName" aria-describedby="nameHelp" name="sName" value="<?=$row['supervisor_name']?>">
+                          <div id="nameHelp" class="form-text">Enter the Supervisor's name</div>
+                          <label for="instructorList" class="form-label">Instructor</label>
+                          <select class="form-select" aria-label="Select instructor" id="instructorList" name="sName">
+                          <?php
+                       $instructorSql = "select supervisor_name from Manager order by supervisor_name";
+    $instructorResult = $conn->query($instructorSql);
+    while($instructorRow = $instructorResult->fetch_assoc()) {
+      if ($instructorRow['manager_id'] == $row['manager_id']) {
         $selText = " selected";
       } else {
         $selText = "";
       }
 ?>
-  <option value="<?=$supervisorRow['manager_id']?>"<?=$selText?>><?=$supervisorRow['supervisor_name']?></option>
+  <option value="<?=$instructorRow['manager_id']?>"<?=$selText?>><?=$instructorRow['supervisor_name']?></option>
 <?php
     }
 ?>
