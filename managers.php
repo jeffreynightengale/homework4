@@ -88,10 +88,10 @@ if ($result->num_rows > 0) {
                           <input type="text" class="form-control" id="sid" aria-describedby="nameHelp" name="sid" value="<?=$row['supervisor_id']?>">
                           <div id="nameHelp" class="form-text">Enter the Supervisor's ID</div>
                           <div class="mb-3">
-                          <label for="instructorList" class="form-label">Instructor</label>
-                          <select class="form-select" aria-label="Select instructor" id="instructorList" name="sName">
+                          <label for="supervisorList" class="form-label">Supervisor</label>
+                          <select class="form-select" aria-label="Select Supervisor" id="supervisorList" name="sName">
                           <?php
-                       $instructorSql = "select supervisor_name from Supervisor order by supervisor_name";
+                       $instructorSql = "select * from Supervisor order by supervisor_name";
     $instructorResult = $conn->query($instructorSql);
     while($instructorRow = $instructorResult->fetch_assoc()) {
       if ($instructorRow['supervisor_id'] == $row['supervisor_id']) {
