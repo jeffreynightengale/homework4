@@ -31,9 +31,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       echo '<div class="alert alert-success" role="alert">New Manager added.</div>';
       break;
     case 'Edit':
-      $sqlEdit = "update Manager set manager_name=?, supervisor_ID=?, supervisor_name=? where manager_id=?";
+      $sqlEdit = "update Manager set manager_name=?, supervisor_ID=? where manager_id=?";
       $stmtEdit = $conn->prepare($sqlEdit);
-      $stmtEdit->bind_param("sisi", $_POST['mName'], $_POST['sid'], $_POST['mid']);
+      $stmtEdit->bind_param("sii", $_POST['mName'], $_POST['sid'], $_POST['mid']);
       $stmtEdit->execute();
       echo '<div class="alert alert-success" role="alert">Manager edited.</div>';
       break;
